@@ -9,38 +9,38 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/departments")
-public class ControllerDepartment{
+public class ControlarDepartamentos{
     @Autowired
-    private ServiceDepartment serviceDepartment;
+    private ServiceDepartment servicoDepartamento;
 
     @PostMapping
-    public Department createDepartment(@RequestParam String name) {
-        return serviceDepartment.createDepartment(name);
+    public Department criarDepartamento(@RequestParam String name) {
+        return serviceDepartment.criarDepartamento(name);
     }
 
     @GetMapping("/{id}")
-    public Department getDepartment(@PathVariable Long id) {
-        return serviceDepartment.getDepartmentById(id);
+    public Department receberDepartamentoId(@PathVariable Long id) {
+        return serviceDepartment.receberDepartamentoId(id);
     }
 
     @GetMapping
-    public List<Department> getAllDepartments() {
-        return serviceDepartment.getAllDepartments();
+    public List<Department> receberTodosDepartamentos() {
+        return serviceDepartment.receberTodosDepartamentos();
     }
 
     @GetMapping("/{name}")
-    public Department getDepartmentByName(@PathVariable String name){
-        return serviceDepartment.getDepartmentByName(name);
+    public Department receberDepartamentoPorNome(@PathVariable String name){
+        return serviceDepartment.receberDepartamentoPorNome(name);
     }
 
     @PutMapping("/{id}")
-    public Department updateDepartment(@PathVariable Long id, @RequestParam String name) {
-        return serviceDepartment.updateDepartment(id, name);
+    public Department atualizarDepartmento(@PathVariable Long id, @RequestParam String name) {
+        return serviceDepartment.atualizarDepartmento(id, name);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteDepartment(@PathVariable Long id) {
-        serviceDepartment.deleteDepartment(id);
+    public void deletarDepartmento(@PathVariable Long id) {
+        serviceDepartment.deletarDepartmento(id);
     }
 }
 
