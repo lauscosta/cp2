@@ -8,30 +8,30 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/employees")
-public class ControllerEmployee {
+public class ControladorEmployee {
     private ServiceEmployee serviceEmployee;
     @PostMapping
-    public Employee createEmployee(@RequestBody Employee employee) {
+    public Employee criarEmployee(@RequestBody Employee employee) {
         return ServiceEmployee.createEmployee(employee);
     }
 
     @GetMapping("/{id}")
-    public Employee getEmployee(@PathVariable Long id) {
+    public Employee receberEmployee(@PathVariable Long id) {
         return ServiceEmployee.getEmployeeById(id);
     }
 
     @GetMapping
-    public List<Employee> getAllEmployees() {
+    public List<Employee> receberTodosEmployees() {
         return ServiceEmployee.getAllEmployees();
     }
 
     @PutMapping("/{id}")
-    public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee updatedEmployee) {
+    public Employee atualizarEmployee(@PathVariable Long id, @RequestBody Employee updatedEmployee) {
         return ServiceEmployee.updateEmployee(id, updatedEmployee);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteEmployee(@PathVariable Long id) {
+    public void deletarEmployee(@PathVariable Long id) {
         ServiceEmployee.deleteEmployee(id);
     }
 
